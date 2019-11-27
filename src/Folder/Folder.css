@@ -1,0 +1,14 @@
+.folder {
+    display: block;
+    border: 2px black solid;
+    height: 40px;
+    margin-left: 10px;
+    margin-right: 10px;
+    line-height: 40px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.folder.active {
+    background-color: teal;
+}

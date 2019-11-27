@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.App {
+    max-width: 800px;
+    min-height: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px black solid;
+    border-radius: 20px;
+}
+
+header {
+    border-bottom: 5px black solid;
+    text-align: center;
+}
+
+.main-title {
+    font-size: 40px;
+    text-align: center;
+    height: 100px;
+    line-height: 100px;
+}
+
+.sidebar {
+    width: 30%;
+    display: inline-block;
+    padding: 20px;
+    text-align: center;
+    vertical-align: top;
+    min-height: 600px;
+}
+
+.main {
+    width: 70%;
+    display: inline-block;
+    padding: 20px;
+    text-align: center;
+    border-left: 5px black solid;
+    min-height: 600px;
+}
+
+h1, h4 {
+    display: inline-block;
+}
