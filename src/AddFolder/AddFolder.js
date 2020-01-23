@@ -18,7 +18,7 @@ class AddFolder extends Component {
     handleSubmit = event => {
         event.preventDefault();
         const folder = {name: event.target['folder'].value};
-        fetch(`http://localhost:9090/folders`, {
+        fetch(`http://localhost:8000/api/folders`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -6,12 +6,12 @@ class NoteSidebar extends Component {
     static contextType = NotefulContext;
     render() {
         const { folders, notes } = this.context;
-        const selectedNote = notes.filter(note => note.id === this.props.match.params.noteId);
+        const selectedNote = notes.filter(note => Number(note.id) === Number(this.props.match.params.noteId));
         const originFolderId = selectedNote.length !== 0
-            ? selectedNote[0].folderId
+            ? selectedNote[0].folder_id
             : '';
         const originFolder = selectedNote.length !== 0
-            ? folders.filter(folder => folder.id === originFolderId)
+            ? folders.filter(folder => Number(folder.id) === Number(originFolderId))
             : '';
         const originFolderName = selectedNote.length !== 0
             ? originFolder[0].name

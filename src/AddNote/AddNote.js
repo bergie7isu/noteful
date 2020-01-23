@@ -26,13 +26,12 @@ class AddNote extends Component {
     handleSubmit = event => {
         event.preventDefault();
         const folder = this.context.folders.filter(folder => folder.name.trim() === event.target['note-folder'].value.trim());
-        console.log(event.target['note-folder'].value);
         const note = {name: event.target['note-name'].value,
             modified: new Date().toISOString(),
-            folderId: folder[0].id,
+            folder_id: folder[0].id,
             content: event.target['note-content'].value,
             };
-        fetch(`http://localhost:9090/notes`, {
+        fetch(`http://localhost:8000/api/notes`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -46,7 +45,7 @@ class AddNote extends Component {
         })
         .then(jsonNote => {
             this.context.addNote(jsonNote);
-            this.props.history.push(`/folder/${jsonNote.folderId}`)
+            this.props.history.push(`/folder/${jsonNote.folder_id}`)
         })
         .catch(error => {
             console.error({ error })

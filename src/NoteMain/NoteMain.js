@@ -12,7 +12,7 @@ class NoteMain extends Component {
 
     render() {
         const { notes } = this.context;
-        const selectedNote = notes.filter(note => note.id === this.props.match.params.noteId);
+        const selectedNote = notes.filter(note => Number(note.id) === Number(this.props.match.params.noteId));
         const noteTitle = selectedNote.length !== 0
             ? selectedNote[0].name
             : '';

@@ -19,7 +19,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:9090/folders')
+    fetch('http://localhost:8000/api/folders')
       .then(foldersResponse => {
         if (!foldersResponse.ok) {
           throw new Error(foldersResponse.status)
@@ -30,7 +30,7 @@ class App extends Component {
         this.setState({folders})
       })
       .catch(folderError => this.setState({ folderError }))
-    fetch('http://localhost:9090/notes')
+    fetch('http://localhost:8000/api/notes')
       .then(notesResponse => {
         if (!notesResponse.ok) {
           throw new Error(notesResponse.status)
@@ -64,7 +64,7 @@ class App extends Component {
   renderSidebarRoutes() {
     return (
       <>
-        {['/', '/add-folder', '/add-note', '/folder/:folderId'].map(path =>
+        {['/', '/add-folder', '/add-note', '/folder/:folder_id'].map(path =>
             <Route
               exact
               path={path}
@@ -83,7 +83,7 @@ class App extends Component {
   renderMainRoutes() {
     return (
       <>
-        {['/', '/folder/:folderId'].map(path =>
+        {['/', '/folder/:folder_id'].map(path =>
           <Route
               exact
               path={path}

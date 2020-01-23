@@ -16,9 +16,9 @@ class NoNoteMain extends Component {
 
     render() {
         const { notes } = this.context;
-        const notesFiltered = this.props.match.params.folderId === undefined
+        const notesFiltered = this.props.match.params.folder_id === undefined
             ? notes
-            : notes.filter(note => note.folderId === this.props.match.params.folderId);
+            : notes.filter(note => Number(note.folder_id) === Number(this.props.match.params.folder_id));
         return (
             <div className='no-note-main'>
                 {notesFiltered.map(note =>

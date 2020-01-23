@@ -16,7 +16,7 @@ class Note extends Component {
     handleDeleteClick = e => {
         e.preventDefault();
         const noteId = this.props.id;
-        fetch(`http://localhost:9090/notes/${noteId}`, {
+        fetch(`http://localhost:8000/api/notes/${noteId}`, {
             method: 'DELETE',
             headers: {
               'content-type': 'application/json'
@@ -60,7 +60,7 @@ class Note extends Component {
 
 Note.propTypes = {
     noteTitle: PropTypes.string.isRequired,
-    id: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     noteModified: PropTypes.string.isRequired
 }
 
