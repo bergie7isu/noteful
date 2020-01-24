@@ -5,6 +5,7 @@ import { NavLink } from 'react-router-dom';
 import NotefulContext from '../NotefulContext';
 import NotefulError from '../NotefulError/NotefulError';
 import PropTypes from 'prop-types';
+import config from '../config';
 
 class Note extends Component {
     static contextType = NotefulContext;
@@ -16,7 +17,7 @@ class Note extends Component {
     handleDeleteClick = e => {
         e.preventDefault();
         const noteId = this.props.id;
-        fetch(`http://localhost:8000/api/notes/${noteId}`, {
+        fetch(config.API_ENDPOINT + `/api/notes/${noteId}`, {
             method: 'DELETE',
             headers: {
               'content-type': 'application/json'

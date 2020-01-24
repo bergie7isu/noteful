@@ -8,6 +8,7 @@ import NoteMain from './NoteMain/NoteMain';
 import NotefulContext from './NotefulContext';
 import AddFolder from './AddFolder/AddFolder';
 import AddNote from './AddNote/AddNote';
+import config from './config';
 
 class App extends Component {
   constructor(props) {
@@ -19,7 +20,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:8000/api/folders')
+    fetch(config.API_ENDPOINT + '/api/folders')
       .then(foldersResponse => {
         if (!foldersResponse.ok) {
           throw new Error(foldersResponse.status)
@@ -30,7 +31,7 @@ class App extends Component {
         this.setState({folders})
       })
       .catch(folderError => this.setState({ folderError }))
-    fetch('http://localhost:8000/api/notes')
+    fetch(config.API_ENDPOINT + '/api/notes')
       .then(notesResponse => {
         if (!notesResponse.ok) {
           throw new Error(notesResponse.status)

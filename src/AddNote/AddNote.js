@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import NotefulContext from '../NotefulContext';
 import ValidationError from '../ValidationError/ValidationError';
+import config from '../config';
 
 class AddNote extends Component {
     static contextType = NotefulContext;
@@ -31,7 +32,7 @@ class AddNote extends Component {
             folder_id: folder[0].id,
             content: event.target['note-content'].value,
             };
-        fetch(`http://localhost:8000/api/notes`, {
+        fetch(config.API_ENDPOINT + `/api/notes`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

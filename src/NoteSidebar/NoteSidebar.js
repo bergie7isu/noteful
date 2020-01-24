@@ -11,7 +11,7 @@ class NoteSidebar extends Component {
             ? selectedNote[0].folder_id
             : '';
         const originFolder = selectedNote.length !== 0
-            ? folders.filter(folder => Number(folder.id) === Number(originFolderId))
+            ? folders.filter(folder => folder.id === originFolderId)
             : '';
         const originFolderName = selectedNote.length !== 0
             ? originFolder[0].name
